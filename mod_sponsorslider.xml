@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.1" client="site" method="upgrade">
+	<name>Sponsor Slider</name>
+	<author>Tristan de Boer</author>
+	<creationDate>4 juli 2018</creationDate>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>info@tristandeboer.nl</authorEmail>
+	<authorUrl>www.tristandeboer.nl</authorUrl>
+	<version>1.0.0</version>
+	<description>
+		Toont sponsor sliders in de Nawaka livefeed!
+	</description>
+	<files>
+		<filename module="mod_sponsorslider">mod_sponsorslider.php</filename>
+		<folder>tmpl</folder>
+		<filename>helper.php</filename>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset
+				name="basic"
+				>
+
+				<field
+					name="target"
+					type="list"
+					label="Target"
+					description="Hoe moet de link geopend worden?"
+					default="1"
+					>
+					<option value="0">Parent</option>
+					<option value="1">Nieuw</option>
+					<option value="2">Popup</option>
+				</field>
+
+				<field
+					name="count"
+					type="number"
+					label="Aantal advertenties"
+					description="Aantal advertenties"
+					default="5"
+					class="validate-numeric"
+					filter="integer"
+				/>
+
+				<field
+					name="cid"
+					type="bannerclient"
+					label="Client label"
+					description="Client label"
+				/>
+
+				<field
+					name="catid"
+					type="category"
+					label="JCATEGORY"
+					description="Categorie"
+					extension="com_banners"
+					multiple="true"
+					size="5"
+					default=""
+					>
+					<option value="">JOPTION_ALL_CATEGORIES</option>
+				</field>
+
+				<field
+					name="tag_search"
+					type="radio"
+					label="Field tag"
+					description="Field tag"
+					class="btn-group btn-group-yesno"
+					default="0"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+
+				<field
+					name="ordering"
+					type="list"
+					label="Volgorde"
+					description="Volgorde"
+					default="0"
+					>
+					<option value="0">Geordend</option>
+					<option value="random">Willekeurig</option>
+				</field>
+
+				<field
+					name="header_text"
+					type="textarea"
+					label="Header label"
+					description="Header desc"
+					filter="safehtml"
+					rows="3"
+					cols="40"
+				/>
+
+				<field
+					name="footer_text"
+					type="textarea"
+					label="Footer label"
+					description="Footer"
+					filter="safehtml"
+					rows="3"
+					cols="40"
+				/>
+			</fieldset>
+			<fieldset name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC"
+				/>
+
+				<field
+					name="moduleclass_sfx"
+					type="textarea" rows="3"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"
+				/>
+
+				<field
+					name="cache"
+					type="list"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC"
+					default="1"
+					>
+					<option value="1">JGLOBAL_USE_GLOBAL</option>
+					<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+
+				<field
+					name="cache_time"
+					type="number"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC"
+					default="900"
+				/>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
